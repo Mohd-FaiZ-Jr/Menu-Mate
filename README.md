@@ -15,10 +15,11 @@
 - **JSON**: Menu data storage for today's and tomorrow's meals
 
 ## Project Structure 📁
+- `code`: Contains all the code files.
 - `index.html`: Main page of the application.
-- `style.css`: Contains all the styles for the UI.
-- `script.js`: Handles dynamic updates and data fetching from JSON.
-- `menu.json`: Stores the menu data.
+- `styles`: Contains all the styles for the UI.
+- `scripts`: Handles dynamic updates and data fetching from JSON.
+- `menu`: Stores the menu data.
 
 
 ## Contributing 🤝
