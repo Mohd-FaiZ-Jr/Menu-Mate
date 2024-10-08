@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Menu Mate</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/mobile.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/925e2c93ce.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S4YVKHZB26"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-S4YVKHZB26");
+    </script>
+  </head>
+  <body>
+    <main class="cover-page">
+      <section class="container">
+        <div id="card" class="quicksand-font">
+          <div class="menu-pic">
+            <div class="day-week">
+              <h5 id="week" class="sub-title grey-qo-regular">Week:</h5>
+              <h5 id="day" class="sub-title grey-qo-regular">Day:</h5>
+            </div>
+          </div>
+          <div class="input-bar">
+            <button id="menu-today">
+              <i class="fa-solid fa-arrow-left"></i> Today
+            </button>
+            <select id="hostel">
+              <optgroup label="Girls hostel">
+                <option value="S-LH 1-4">LH 1-4</option>
+              </optgroup>
+              <optgroup label="Boys hostel">
+                <option value="S-BH 1-12">BH 1-12</option>
+                <option value="S-LH 1-4">BH 7/11</option>
+              </optgroup>
+            </select>
+            <button id="menu-tom">
+              Tomorrow <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div id="box">
+            <div class="meal">
+              <b>BreakFast</b>
+              <div id="breakfast" class="data"></div>
+            </div>
+            <div class="meal">
+              <b>Lunch</b>
+              <div id="lunch" class="data"></div>
+            </div>
+            <div class="meal">
+              <b>Snacks</b>
+              <div id="snacks" class="data"></div>
+            </div>
+            <div class="meal">
+              <b>Dinner</b>
+              <div id="dinner" class="data"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="cop">
+      <p>
+      Developed by
+        <a
+          href="https://www.linkedin.com/in/mohammad-faiz-developer/"
+          target="_blank"
+          >Mohammad Faiz</a
+        >
+        &
+        <a
+          href="https://www.linkedin.com/in/mandeep-ray-b5535627b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "
+          target="_blank"
+          >Mandeep Ray</a
+        >
+      </p>
+    </footer>
+
+    <script type="module" src="scripts/Menu.js"></script>
+    <script type="module" src="scripts/Today-Menu.js"></script>
+    <script type="module" src="scripts/Tomorrow-Menu.js"></script>
+    <script>
+      document
+        .getElementById("menu-tom")
+        .addEventListener("click", function () {
+          this.focus();
+        });
+
+      document
+        .getElementById("menu-today")
+        .addEventListener("click", function () {
+          this.focus();
+        });
+      document
+        .getElementById("menu-tom")
+        .addEventListener("click", function () {
+          isTomorrowMenu = true;
+          this.style.display = "none";
+          document.getElementById("menu-today").style.display = "block";
+          document.getElementById("hostel").style.display = "none";
+        });
+
+      document
+        .getElementById("menu-today")
+        .addEventListener("click", function () {
+          isTomorrowMenu = false;
+          this.style.display = "none";
+          document.getElementById("menu-tom").style.display = "block";
+          document.getElementById("hostel").style.display = "block";
+        });
+    </script>
+  </body>
+</html>
