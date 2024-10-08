@@ -59,4 +59,4 @@ We welcome contributions to enhance the project! If you'd like to contribute:
 - Open an issue first for large changes to discuss what you plan to do.
 
 ## License 📜
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE), so feel free to use the code and contribute under the terms of that license.
