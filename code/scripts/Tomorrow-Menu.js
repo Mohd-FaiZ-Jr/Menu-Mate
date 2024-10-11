@@ -4,6 +4,7 @@ class UpdateMenu {
 
     Date.prototype.getTomorrowWeek = function () {
       var date = new Date(this.getTime());
+      date.setDate(today.getDate() + 1);
       const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
       const firstDayOfWeek = firstDayOfMonth.getDay();
 
