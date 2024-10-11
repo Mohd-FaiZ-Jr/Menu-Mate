@@ -1,19 +1,20 @@
 class UpdateMenu {
   getMenu(menu) {
     this.mealPlan = menu;
-
-    let today = new Date();
-    let tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
-    let tomorrowDay = (tomorrow.getDay() - 1 + 7) % 7;
-
-    let firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
     
-    let currentWeek = Math.floor((today - firstDayOfMonth) / 604800000);
-    if (currentWeek < 0) {
-      currentWeek = 3;
-    } else {
-      currentWeek %= 4;
-    }
+    Date.prototype.getTomorrowWeek = function () {
+      var date = new Date(this.getTime());
+      date.setDate(today.getDate() + 1);
+      const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+      const firstDayOfWeek = firstDayOfMonth.getDay();
+
+      const dayOfMonth = date.getDate();
+      const adjustedDay = dayOfMonth + firstDayOfWeek - 1;
+
+      let weekNumber = Math.floor(adjustedDay / 7) % 4;
+
+      return weekNumber;
+    };
     
     let hostelSelect = document.getElementById("hostel").value;
     let weekOffset = 0;
@@ -23,11 +24,10 @@ class UpdateMenu {
     } else if (hostelSelect === "S-BH 1-12") {
       weekOffset = 0;
     }
+
+    let today = new Date();    
+    let tomorrowWeek = today.getTomorrowWeek();
     
-    currentWeek = (currentWeek + weekOffset) % 4;
-    
-    // Calculate the tomorrow week
-    let tomorrowWeek = (currentWeek + 1) % 4;
     
     const days = [
       "Monday",
