@@ -2,18 +2,19 @@ class UpdateMenu {
   getMenu(menu) {
     this.mealPlan = menu;
 
-    let today = new Date();
-    let tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
-    let tomorrowDay = (tomorrow.getDay() - 1 + 7) % 7;
+    Date.prototype.getTomorrowWeek = function () {
+      var date = new Date(this.getTime());
+      date.setDate(today.getDate() + 1);
+      const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+      const firstDayOfWeek = firstDayOfMonth.getDay();
 
-    let firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-    
-    let currentWeek = Math.floor((today - firstDayOfMonth) / 604800000);
-    if (currentWeek < 0) {
-      currentWeek = 3;
-    } else {
-      currentWeek %= 4;
-    }
+      const dayOfMonth = date.getDate();
+      const adjustedDay = dayOfMonth + firstDayOfWeek - 1;
+
+      let weekNumber = Math.floor(adjustedDay / 7) % 4;
+
+      return weekNumber;
+    };
     
     let hostelSelect = document.getElementById("hostel").value;
     let weekOffset = 0;
@@ -23,11 +24,9 @@ class UpdateMenu {
     } else if (hostelSelect === "S-BH 1-12") {
       weekOffset = 0;
     }
-    
-    currentWeek = (currentWeek + weekOffset) % 4;
-    
-    // Calculate the tomorrow week
-    let tomorrowWeek = (currentWeek + 1) % 4;
+
+    let today = new Date();    
+    let tomorrowWeek = today.getTomorrowWeek();
     
     const days = [
       "Monday",
@@ -38,6 +37,7 @@ class UpdateMenu {
       "Saturday",
       "Sunday",
     ];
+    let tomorrowDay = (today.getDay() + 7) % 7;
     let actualDay = days[tomorrowDay];
 
     let week = document.getElementById("week");
