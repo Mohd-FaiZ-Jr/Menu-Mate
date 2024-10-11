@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark/Light Toggle</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-label {
+    width: 60px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-circle {
+    width: 26px;
+    height: 26px;
+    background-color: #FFD700; /* Gold for light mode */
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.toggle-input:checked + .toggle-label .toggle-circle {
+    transform: translateX(30px);
+}
+
+body.light-mode .toggle-circle {
+    background-color: #FFD700; /* Gold for light mode */
+}
+
+body.dark-mode .toggle-circle {
+    background-color: #ffffff; /* White for dark mode */
+}
+
+body.dark-mode .toggle-label {
+    background-color: #FFD700; /* Gold switch for dark mode */
+}
+
+body.dark-mode .toggle-input:checked + .toggle-label {
+    background-color: #333; /* Black switch for dark mode */
+}
+
+    </style>
+</head>
+<body class="light-mode">
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle-input" class="toggle-input">
+        <label for="toggle-input" class="toggle-label">
+            <div class="toggle-circle"></div>
+        </label>
+    </div>
+
+    <script>
+        const toggleInput = document.getElementById('toggle-input');
+const body = document.body;
+
+toggleInput.addEventListener('change', () => {
+    if (toggleInput.checked) {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+    } else {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
+    }
+});
+
+    </script>
+</body>
+</html>
