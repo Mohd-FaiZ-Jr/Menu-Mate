@@ -2,38 +2,45 @@
 @import url(https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900);
+
 html {
   height: 100%;
   width: 100%;
 }
+
 :root {
   --font-size: 20px;
   --font-default-color: white;
   --font-style-color: rgb(230 255 0);
 }
+
 .quicksand-font {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
+
 .grey-qo-regular {
   font-family: "Grey Qo", cursive;
   font-weight: 500;
 }
+
 .raleway {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
+
 body {
   margin: 0;
 }
+
 .cover-page {
   height: 100vh;
   width: 100%;
-  background: rgb(0 0 0 / 0.5) url(../img/colourful-background.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/colourful-background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,6 +48,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .container {
   height: 100vh;
   width: fit-content;
@@ -49,14 +57,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #card {
   min-height: 670px;
   width: 500px;
-  background-color: #00000073;
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px 0 rgb(15 15 15 / 0.33);
-  border: 1px solid rgb(255 255 255 / 0.18);
+  box-shadow: 0 8px 32px 0 rgba(15, 15, 15, 0.33);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -66,6 +75,7 @@ body {
   text-align: center;
   overflow: hidden;
 }
+
 .input-bar {
   margin-top: 1px;
   color: #fff;
@@ -74,6 +84,7 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
 .input-bar button {
   padding: 0.5rem;
   border: none;
@@ -83,6 +94,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
 }
+
 #menu-tom,
 #menu-today {
   padding: 0.5rem;
@@ -92,14 +104,36 @@ body {
   border-radius: 0 0 5px 0;
   font-size: 1rem;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
+
+#menu-tom::after,
+#menu-today::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+#menu-tom:hover::after,
+#menu-today:hover::after {
+  width: 100%;
+}
+
 #menu-today {
   display: none;
 }
+
 #menu-today.show {
   display: block;
 }
+
 select {
   min-width: 110px;
   padding: 0.5rem;
@@ -107,18 +141,39 @@ select {
   border-radius: 0 4px 4px 0;
   outline: none;
   border: none;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
   cursor: pointer;
   color: #1a120e;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+select:hover {
+  background-color: #e0e0e0;
+}
+
+select:focus {
+  background-color: #d0d0d0;
+  color: #000;
+}
+
 optgroup {
   font-weight: 700;
   color: #301d16;
 }
+
+option {
+  background-color: #f9f9f9;
+  color: #1a120e;
+}
+
+option:hover {
+  background-color: #e0e0e0;
+}
+
 .menu-pic {
   min-height: 180px;
   width: 100%;
-  background-color: #f6f6f6;
+  background-color: rgba(246, 246, 246, 0.8);
   background-image: url(../img/menucover.jpg);
   background-repeat: no-repeat;
   background-position: right;
@@ -127,7 +182,9 @@ optgroup {
   justify-content: start;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
+
 .menu-pic::after {
   content: "";
   width: 0%;
@@ -138,12 +195,15 @@ optgroup {
   position: absolute;
   bottom: -3px;
 }
+
 .menu-pic.loading::after {
   width: 0%;
 }
+
 .menu-pic.loading::after {
   animation: progress 2s ease-in-out;
 }
+
 @keyframes progress {
   0% {
     width: 0%;
@@ -152,6 +212,7 @@ optgroup {
     width: 100%;
   }
 }
+
 .day-week {
   margin-left: 25px;
   width: fit-content;
@@ -159,14 +220,18 @@ optgroup {
   flex-direction: column;
   align-items: flex-start;
 }
+
 .sub-title {
   margin: 0;
   font-size: 2.3rem;
   color: #301d16;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
+
 #day {
   position: relative;
 }
+
 #day::after {
   position: absolute;
   bottom: -8px;
@@ -177,6 +242,7 @@ optgroup {
   background-color: #301d16;
   border-radius: 10px;
 }
+
 #box {
   width: 100%;
   height: 70%;
@@ -184,35 +250,78 @@ optgroup {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  transition: opacity 0.3s ease;
 }
+
 .meal {
   align-self: center;
   font-size: 1.4rem;
   width: 95%;
 }
+
 .meal b {
   color: var(--font-style-color);
+  position: relative;
+  display: inline-block;
 }
+
+.meal b::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--font-style-color);
+  transition: width 0.3s ease;
+}
+
+.meal:hover b::after {
+  width: 100%;
+}
+
 .data {
   font-size: 1rem;
+  color: var(--font-default-color);
 }
+
 .cop {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.6rem;
-  background: #e3e3e3e0;
+  background: rgba(227, 227, 227, 0.8);
   color: #545454;
   text-align: center;
 }
+
 .cop p {
   font-size: clamp(0.9rem, 1vw, 2rem);
   font-family: "poppins", sans-serif;
 }
+
 .cop p i {
   color: red;
 }
+
 .cop a {
   color: #1717ffe3;
 }
 
+/* Logo hover effect */
+.menu-pic img {
+  transition: transform 0.3s ease;
+}
+
+.menu-pic:hover img {
+  transform: scale(1.1);
+}
+
+/* Smooth transition for menu change */
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
