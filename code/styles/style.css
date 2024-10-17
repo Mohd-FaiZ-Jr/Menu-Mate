@@ -275,7 +275,7 @@ transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .meal:hover {
-background-color: lightcoral;
+background-color: #2F4F4F ;
 color: #FFD700;
 transform: scale(1.1);
 }
