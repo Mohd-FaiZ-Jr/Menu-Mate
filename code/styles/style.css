@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900);
+
 html {
   height: 100%;
   width: 100%;
@@ -31,9 +32,9 @@ body {
   margin: 0;
 }
 .cover-page {
-  height: 100vh;
+  height: 820px;
   width: 100%;
-  background: rgb(0 0 0 / 0.5) url(../img/2d-graphic-colorful-background.jpg);
+  background: rgb(0 0 0 / 0.5) url(../img/colourful-background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,15 +43,50 @@ body {
   justify-content: center;
 }
 .container {
-  height: 100vh;
+  height: 100%;
   width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
+#notice-container {
+  background: #301d1682;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+h4 {
+  margin: 0;
+  font-size: var(--font-size);
+  color: #f6f6f6;
+}
+@keyframes slideAcross {
+  0% {
+    transform: translateX(-110%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+
+#notice {
+  animation: slideAcross 5s linear infinite;
+  white-space: nowrap;
+}
+
 #card {
-  min-height: 670px;
+  min-height: 650px;
+  height: 670px;
   width: 500px;
   background-color: #00000073;
   backdrop-filter: blur(10px);
@@ -60,7 +96,7 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: var(--font-default-color);
   text-align: center;
@@ -86,13 +122,13 @@ body {
 #menu-tom,
 #menu-today {
   padding: 0.5rem;
-  border: none;
-  background: none;
-  color: #fff;
-  border-radius: 0 0 5px 0;
   font-size: 1rem;
+  background-color: rgb(238, 158, 4);
+  border: none;
+  border-radius: 5px;
+  color: white;
   cursor: pointer;
-  text-decoration: underline;
+  transition: background-color 0.3s ease;
 }
 #menu-today {
   display: none;
@@ -196,16 +232,27 @@ optgroup {
 .data {
   font-size: 1rem;
 }
+#contribute{
+  text-align: center;
+  color: #545454;
+  margin: 0;
+}
+#contribute a{
+  color: #3d3dfa;
+}
 .cop {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.6rem;
+  padding: 1rem;
   background: #e3e3e3e0;
   color: #545454;
   text-align: center;
+  gap: 5px;
 }
 .cop p {
+  margin: 0;
   font-size: clamp(0.9rem, 1vw, 2rem);
   font-family: "poppins", sans-serif;
 }

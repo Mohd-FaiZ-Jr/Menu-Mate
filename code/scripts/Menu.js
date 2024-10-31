@@ -53,6 +53,7 @@ class UpdateMenu {
     day.innerHTML = `Day: ${actualDay}`;
 
     let brkfst =
+  
       this.mealPlan.weeks[currentWeek].days[currentDay].BREAKFAST.toLowerCase();
 
     let lunch =
@@ -64,7 +65,19 @@ class UpdateMenu {
     let dinner =
       this.mealPlan.weeks[currentWeek].days[currentDay].DINNER.toLowerCase();
 
-    let id1 = document.getElementById("breakfast");
+    //special menu
+    /*let brkfst = "millet idli, veggies sambar, chuntney, tea";
+
+    let lunch =
+      "lemon rice, roti, dal fry, navaratna khorma, achary aloo, papad";
+
+    let snacks = "masala pasta with veggies, coffee";
+
+    let dinner =
+      "jeera rice, puri, dal, pindi chole, vegetable chips, frymss, rasgulla";
+*/
+    
+let id1 = document.getElementById("breakfast");
     id1.innerHTML = `${brkfst}`;
 
     let id2 = document.getElementById("lunch");

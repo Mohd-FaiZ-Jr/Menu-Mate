@@ -2,33 +2,50 @@ class UpdateMenu {
   getMenu(menu) {
     this.mealPlan = menu;
 
+    // Polyfill for Date.prototype.getWeek()
+    Date.prototype.getWeek = function () {
+      var date = new Date(this.getTime());
+      date.setHours(0, 0, 0, 0);
+      date.setDate(date.getDate() + 3 - ((date.getDay() + 6) % 7));
+      var week1 = new Date(date.getFullYear(), 0, 4);
+      return (
+        1 +
+        Math.round(
+          ((date.getTime() - week1.getTime()) / 86400000 -
+            3 +
+            ((week1.getDay() + 6) % 7)) /
+            7
+        )
+      );
+    };
+
     let today = new Date();
+    let currentWeek = today.getWeek();
+
+    let hostelSelect = document.getElementById("hostel").value;
+    let weekOffset = 0;
+    if (hostelSelect === "S-LH 1-4") {
+      weekOffset = 1; // Add 1 to the current week for girls hostel
+    } else if (hostelSelect === "S-BH 1-12") {
+      weekOffset = 0; // No offset for boys hostel
+    }
+
+    currentWeek = (currentWeek + weekOffset) % 4;
+
     let tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
     let tomorrowDay = (tomorrow.getDay() - 1 + 7) % 7;
 
-    let firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
     
-    let currentWeek = Math.floor((today - firstDayOfMonth) / 604800000);
-    if (currentWeek < 0) {
-      currentWeek = 3;
+    let todayDay = (today.getDay() + 6) % 7;
+    let tomorrowWeek;
+    if (todayDay === 6) {
+      tomorrowWeek = currentWeek + 1;
     } else {
-      currentWeek %= 4;
+      tomorrowWeek = currentWeek
     }
-    
-    let hostelSelect = document.getElementById("hostel").value;
-    let weekOffset = 0;
-    
-    if (hostelSelect === "S-LH 1-4") {
-      weekOffset = 1;
-    } else if (hostelSelect === "S-BH 1-12") {
-      weekOffset = 0;
-    }
-    
-    currentWeek = (currentWeek + weekOffset) % 4;
-    
-    // Calculate the tomorrow week
-    let tomorrowWeek = (currentWeek + 1) % 4;
-    
+
+    if(tomorrowWeek >=4 ) tomorrowWeek = 0;
+
     const days = [
       "Monday",
       "Tuesday",

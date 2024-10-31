@@ -1,6 +1,10 @@
 @media screen and (max-width: 650px) {
+  #notice-container {
+    width: 95%;
+  }
   #card {
     width: calc(100% - 5%);
+    /* min-height: 90%; */
   }
   .container {
     width: 95%;
