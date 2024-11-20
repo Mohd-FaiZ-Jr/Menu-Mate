@@ -25,7 +25,7 @@ class UpdateMenu {
     let hostelSelect = document.getElementById("hostel").value;
     let weekOffset = 0;
 
-    if (hostelSelect === "S-LH 1-4") {
+    if (hostelSelect === "W-LH 1-4") {
       weekOffset = 1; // Add 1 to the current week for girls hostel
     } else if (hostelSelect === "S-BH 1-12") {
       weekOffset = 0; // No offset for boys hostel
