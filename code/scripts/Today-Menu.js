@@ -33,6 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let previousHostel = localStorage.getItem("selectedHostel");
 
   if (previousHostel) hostelSelect.value = previousHostel;
-  else hostelSelect.value = "S-BH 1-12"; // default value
+  else hostelSelect.value = "W-BH 1-12"; // default value
   hostelSelect.dispatchEvent(new Event("change"));
 });
