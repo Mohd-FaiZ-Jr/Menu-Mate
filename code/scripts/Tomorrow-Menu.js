@@ -26,7 +26,7 @@ class UpdateMenu {
     let weekOffset = 0;
     if (hostelSelect === "W-LH 1-4") {
       weekOffset = 1; // Add 1 to the current week for girls hostel
-    } else if (hostelSelect === "S-BH 1-12") {
+    } else if (hostelSelect === "W-BH 1-12") {
       weekOffset = 0; // No offset for boys hostel
     }
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let previousHostel = localStorage.getItem("selectedHostel");
 
   if (previousHostel) hostelSelect.value = previousHostel;
-  else hostelSelect.value = "S-BH 1-12"; // default value
+  else hostelSelect.value = "W-BH 1-12"; // default value
   hostelSelect.dispatchEvent(new Event("change"));
 });
 
