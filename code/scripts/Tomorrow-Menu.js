@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (previousHostel) hostelSelect.value = previousHostel;
   else hostelSelect.value = "W-BH 1-12"; // default value
+  else hostelSelect.value = "W-BH 1-12"; // default value
   hostelSelect.dispatchEvent(new Event("change"));
 });
 
