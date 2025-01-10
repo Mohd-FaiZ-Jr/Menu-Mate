@@ -24,13 +24,13 @@ class UpdateMenu {
 
     let hostelSelect = document.getElementById("hostel").value;
     let weekOffset = 0;
-    if (hostelSelect === "S-LH 1-4") {
-      weekOffset = 1; // Add 1 to the current week for girls hostel
-    } else if (hostelSelect === "S-BH 1-12") {
-      weekOffset = 0; // No offset for boys hostel
+    if (hostelSelect === "W-LH 1-4") {
+      weekOffset = 1;
+    } else if (hostelSelect === "W-BH 1-12") {
+      weekOffset = 0;
     }
 
-    currentWeek = (currentWeek + weekOffset) % 4;
+   currentWeek = (currentWeek + weekOffset) % 4;
 
     let tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
     let tomorrowDay = (tomorrow.getDay() - 1 + 7) % 7;
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let previousHostel = localStorage.getItem("selectedHostel");
 
   if (previousHostel) hostelSelect.value = previousHostel;
-  else hostelSelect.value = "S-BH 1-12"; // default value
+  else hostelSelect.value = "W-BH 1-12"; // default value
   hostelSelect.dispatchEvent(new Event("change"));
 });
 
