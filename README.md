@@ -1,6 +1,12 @@
 # Menu Mate 🍽️
 
-**Menu Mate** is a simple and convenient web application that provides the daily hostel mess menu for ITER (Institute of Technical Education and Research). It allows users to easily check today's menu and view tomorrow's menu in advance, making meal planning hassle-free for hostel residents.
+**Menu Mate** is a simple and convenient web application that was originally created to provide the daily hostel mess menu for ITER (Institute of Technical Education and Research). It allows users to easily check today's menu and view tomorrow's menu in advance, making meal planning hassle-free for hostel residents.
+
+> **⚠️Note:** This version of Menu Mate is now **outdated** and not used in the current production version.  
+> However, students and contributors can explore this codebase to understand how the project was initially structured and functioned.  
+> **Please do not copy or plagiarize** this project. Use it strictly for **learning and reference purposes only**.
+
+---
 
 ## Features ✨
 - 📅 View today's menu
@@ -21,6 +27,7 @@
 - `scripts`: Handles dynamic updates and data fetching from JSON.
 - `menu`: Stores the menu data.
 
+---
 
 ## Contributing 🤝
 
